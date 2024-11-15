@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horóscopos EduardRuHa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #21678a;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e0f7fa;
+            border-radius: 5px;
+        }
+        .motivational-quote {
+            font-style: italic;
+            margin-top: 20px;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Horóscopos EduardRuHa</h1>
+    <p>SELECCIONA TU ZIGNO ZODIACAL PARA CONOCER TU HORÓSCOPO</p>
+
+    <select id="signo">
+        <option value="aries">Aries</option>
+        <option value="tauro">Tauro</option>
+        <option value="geminis">Géminis</option>
+        <option value="cancer">Cáncer</option>
+        <option value="leo">Leo</option>
+        <option value="virgo">Virgo</option>
+        <option value="libra">Libra</option>
+        <option value="escorpio">Escorpio</option>
+        <option value="sagitario">Sagitario</option>
+        <option value="capricornio">Capricornio</option>
+        <option value="acuario">Acuario</option>
+        <option value="piscis">Piscis</option>
+    </select>
+    
+    <button onclick="mostrarHoroscopo()">Ver Horóscopo</button>
+
+    <div class="result" id="resultadoHoroscopo"></div>
+    <div class="motivational-quote" id="fraseMotivacional"></div>
+
+    <script>
+        function mostrarHoroscopo() {
+            const signo = document.getElementById('signo').value;
+            const resultadoHoroscopo = document.getElementById('resultadoHoroscopo');
+            const fraseMotivacional = document.getElementById('fraseMotivacional');
+            
+            // Horóscopos por signo
+            const horoscopos = {
+                aries: "Hoy es un buen día para tomar decisiones importantes. Tu energía está en su punto máximo.",
+                tauro: "Es un buen momento para centrarse en lo que realmente importa. La paciencia te llevará lejos.",
+                geminis: "Hoy te sentirás muy comunicativo. Aprovecha para expresar tus ideas y escuchar a los demás.",
+                cancer: "Un día perfecto para reflexionar sobre tus emociones. No tengas miedo de mostrar tu vulnerabilidad.",
+                leo: "La creatividad fluye dentro de ti hoy. Es el momento ideal para nuevos proyectos.",
+                virgo: "Es un buen día para organizar tu vida. La disciplina y el enfoque serán tus mejores aliados.",
+                libra: "La armonía y la paz son esenciales hoy. Busca momentos de tranquilidad.",
+                escorpio: "Hoy sentirás una gran fuerza interior. Confía en tu intuición y sigue adelante con confianza.",
+                sagitario: "La aventura te llama. Hoy es un buen día para probar algo nuevo.",
+                capricornio: "Es momento de trabajar hacia tus metas con determinación. La perseverancia te llevará lejos.",
+                acuario: "Tu mente está llena de ideas innovadoras. Hoy es un buen día para compartirlas.",
+                piscis: "Hoy sentirás una conexión profunda con los demás. Aprovecha tu sensibilidad para ayudar a los demás."
+            };
+
+            // Frases motivacionales
+            const frases = [
+                "Nunca dejes de soñar, siempre hay una luz al final del túnel.",
+                "El éxito está en las pequeñas acciones cotidianas, no en los grandes logros.",
+                "Hoy es un buen día para empezar algo nuevo.",
+                "La confianza en ti mismo es el primer paso hacia el éxito.",
+                "La perseverancia es la clave para superar cualquier obstáculo."
+            ];
+
+            // Mostrar horóscopo
+            resultadoHoroscopo.innerHTML = horoscopos[signo] || "Selecciona un signo para ver tu horóscopo.";
+
+            // Mostrar frase motivacional aleatoria
+            const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+            fraseMotivacional.innerHTML = `"${fraseAleatoria}"`;
+        }
+    </script>
+
+</body>
+</html>
